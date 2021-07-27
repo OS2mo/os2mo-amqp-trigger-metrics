@@ -2,19 +2,18 @@
 #
 # SPDX-License-Identifier: MPL-2.0
 import asyncio
-import json
 from typing import Any
-from typing import List
 from uuid import uuid4
 
 import click
 from aio_pika import connect
 from aio_pika import ExchangeType
 from aio_pika import IncomingMessage
-from prometheus_client import start_http_server
 from prometheus_client import Counter
+from prometheus_client import start_http_server
 
-c = Counter('os2mo_events', 'AMQP Events', ['service', 'object_type', 'action'])
+c = Counter("os2mo_events", "AMQP Events", ["service", "object_type", "action"])
+
 
 def on_message(message: IncomingMessage) -> None:
     with message.process():
