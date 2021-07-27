@@ -4,9 +4,9 @@ SPDX-FileCopyrightText: Magenta ApS
 SPDX-License-Identifier: MPL-2.0
 -->
 
-# OS2mo AMQP Trigger Example
+# OS2mo AMQP Trigger Metrics
 
-This repository contains an example implementation of an OS2mo AMQP Trigger receiver.
+This repository contains an OS2mo AMQP Trigger receiver that exposes metrics about changes in MO.
 
 ## Usage
 Adjust the `AMQP_HOST` variable to OS2mo's running message-broker, either;
@@ -29,13 +29,12 @@ Binding routing-key: employee.address.update
 Listening for messages
 ```
 
-At which point an update to an address in OS2mo should trigger an event similar to:
+At which point metrics should be available at `localhost:8000`:
 ```
-{
-    "routing-key": "employee.address.update",
-    "body": {
-        "uuid": "be39de52-060a-4ae3-b705-ba46dd9b27a6",
-        "time": "2021-07-27T00:00:00+02:00"
-    }
-}
+# HELP os2mo_events_total AMQP Events
+# TYPE os2mo_events_total counter
+os2mo_events_total{action="update",object_type="org_unit",service="org_unit"} 1.0
+# HELP os2mo_events_created AMQP Events
+# TYPE os2mo_events_created gauge
+os2mo_events_created{action="update",object_type="org_unit",service="org_unit"} 1.6273914312081306e+09
 ```

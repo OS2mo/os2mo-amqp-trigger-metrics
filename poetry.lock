@@ -228,6 +228,28 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 dev = ["pre-commit", "tox"]
 
 [[package]]
+name = "prometheus-client"
+version = "0.11.0"
+description = "Python client for the Prometheus monitoring system."
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+
+[package.extras]
+twisted = ["twisted"]
+
+[[package]]
+name = "prometheus-metrics"
+version = "0.1.6.6"
+description = "Manage prometheus metrics"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+prometheus-client = "*"
+
+[[package]]
 name = "py"
 version = "1.10.0"
 description = "library with cross-python path, ini-parsing, io, code, log facilities"
@@ -338,7 +360,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "5e4352bd1ec036a5822f3c6f620f4ff0a09a71d91885162717a038a3f504feaa"
+content-hash = "5bf10d2e87e5698efa94d523e3d5133bfe0999d50ae4646441aa68b00cee80f4"
 
 [metadata.files]
 aio-pika = [
@@ -479,6 +501,14 @@ pathspec = [
 pluggy = [
     {file = "pluggy-0.13.1-py2.py3-none-any.whl", hash = "sha256:966c145cd83c96502c3c3868f50408687b38434af77734af1e9ca461a4081d2d"},
     {file = "pluggy-0.13.1.tar.gz", hash = "sha256:15b2acde666561e1298d71b523007ed7364de07029219b604cf808bfa1c765b0"},
+]
+prometheus-client = [
+    {file = "prometheus_client-0.11.0-py2.py3-none-any.whl", hash = "sha256:b014bc76815eb1399da8ce5fc84b7717a3e63652b0c0f8804092c9363acab1b2"},
+    {file = "prometheus_client-0.11.0.tar.gz", hash = "sha256:3a8baade6cb80bcfe43297e33e7623f3118d660d41387593758e2fb1ea173a86"},
+]
+prometheus-metrics = [
+    {file = "prometheus_metrics-0.1.6.6-py2.py3-none-any.whl", hash = "sha256:e3b21ced90aa2ad5aee02b52461da332a3534251151521bd247adb24c3acff2a"},
+    {file = "prometheus_metrics-0.1.6.6.tar.gz", hash = "sha256:8594de0ea637bfac7134e419eeac55f82baf435ef884ba315536e9863976ba64"},
 ]
 py = [
     {file = "py-1.10.0-py2.py3-none-any.whl", hash = "sha256:3b80836aa6d1feeaa108e046da6423ab8f6ceda6468545ae8d02d9d58d18818a"},
