@@ -24,8 +24,7 @@ Establishing AMQP connection to amqp://guest:xxxxx@HOST:5672/
 Creating AMQP channel
 Attaching AMQP exchange to channel
 Declaring unique message queue: os2mo-consumer-UUID
-Binding routing-key: org_unit.address.update
-Binding routing-key: employee.address.update
+Binding routing-key: *.*.*
 Listening for messages
 ```
 
