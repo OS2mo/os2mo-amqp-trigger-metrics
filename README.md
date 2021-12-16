@@ -38,3 +38,11 @@ os2mo_events_total{action="update",object_type="org_unit",service="org_unit"} 1.
 # TYPE os2mo_events_created gauge
 os2mo_events_created{action="update",object_type="org_unit",service="org_unit"} 1.6273914312081306e+09
 ```
+
+## Syncronize with upstream
+Whenever changes have been made to the upstream repository consider running:
+```
+git remote add upstream git@git.magenta.dk:rammearkitektur/os2mo-triggers/os2mo-amqp-trigger-example.git
+git fetch upstream
+git rebase upstream/master
+```
