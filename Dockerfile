@@ -14,5 +14,5 @@ COPY poetry.lock pyproject.toml ./
 RUN poetry install --no-dev
 
 WORKDIR /app
-COPY main.py .
+COPY os2mo_amqp_trigger_metrics/main.py .
 CMD [ "python", "./main.py" ]
