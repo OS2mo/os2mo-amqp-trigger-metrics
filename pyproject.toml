@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: MPL-2.0
 [tool.poetry]
 name = "os2mo-amqp-trigger-metrics"
-version = "1.0.0"
+version = "1.1.0"
 description = "Event-driven AMQP metrics."
 authors = ["Magenta <info@magenta.dk>"]
 license = "MPL-2.0"
