@@ -1,6 +1,6 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Contact: Magenta ApS <info@magenta.dk>
 
-Files: RELEASE.md.template poetry.lock
+Files: .flake8 mypy.ini poetry.* *.toml *.json *.yaml *.yml .gitignore RELEASE.md RELEASE.md.template
 Copyright: 2017-2020 Magenta ApS <info@magenta.dk>
 License: MPL-2.0

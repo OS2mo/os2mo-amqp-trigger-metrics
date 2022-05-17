@@ -5,6 +5,7 @@ stages:
   - lint
   - build
   - test
+  - coverage
   - release
 
 
@@ -14,20 +15,25 @@ variables:
   RELEASE_REGISTRY: docker.io
   RELEASE_REGISTRY_IMAGE: index.docker.io/magentaaps/os2mo-amqp-trigger-metrics
 
+  PYTEST_COV_MODULE: os2mo_amqp_trigger_metrics
+  PYTEST_COV_FAIL_UNDER: 0
 
 include:
-  - project: 'labs/salt-automation'
-    ref: 'master'
-    file: '/gitlab-ci-templates/common/pre-commit.v1.yml'
-  - project: 'labs/salt-automation'
-    ref: 'master'
-    file: '/gitlab-ci-templates/common/docker-build.v1.yml'
-  - project: 'labs/salt-automation'
-    ref: 'master'
-    file: '/gitlab-ci-templates/common/autopub.v1.yml'
-  - project: 'labs/salt-automation'
-    ref: 'master'
-    file: '/gitlab-ci-templates/common/docker-release.v1.yml'
+  - project: labs/salt-automation
+    ref: master
+    file: /gitlab-ci-templates/common/autopub.v1.yml
+  - project: labs/salt-automation
+    ref: master
+    file: /gitlab-ci-templates/common/pre-commit.v1.yml
+  - project: labs/salt-automation
+    ref: master
+    file: /gitlab-ci-templates/common/docker-build.v1.yml
+  - project: labs/salt-automation
+    ref: master
+    file: /gitlab-ci-templates/common/docker-release.v1.yml
+  - project: labs/salt-automation
+    ref: master
+    file: gitlab-ci-templates/python/pytest.v1.yml
 
 
 # This is a workaround for a bug causing detached pipelines on MRs
@@ -38,15 +44,3 @@ workflow:
     - if: $CI_COMMIT_TAG
     - if: $CI_COMMIT_BRANCH
     - if: $CI_MERGE_REQUEST_IID
-
-
-# Test stage
-############
-Test:
-  stage: test
-  image:
-    name: ${IMAGE_SHA}
-  script:
-    - python main.py --help
-  tags:
-    - docker
